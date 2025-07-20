@@ -1,0 +1,57 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+TestResults/
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+*.snupkg
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Others
+*.dbmdl
+*.pdb
+*.cache
+*.config
+*.vspscc
+*.vssscc
+
+# Selenium WebDriver logs
+selenium-server.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Node.js (if used for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Test coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Environment files
+.env

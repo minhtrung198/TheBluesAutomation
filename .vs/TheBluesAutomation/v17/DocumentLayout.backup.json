@@ -1,0 +1,233 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pages\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\AddToCartTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Tests\\AddToCartTest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pages\\Cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\LoginTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Tests\\LoginTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\TheBluesAutomation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TheBluesAutomation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Drivers\\WebDriverFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Drivers\\WebDriverFactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ScreenshotHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Utils\\ScreenshotHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\LoginPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Pages\\LoginPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ExtentManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Utils\\ExtentManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\MSTestSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MSTestSettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 216,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ScreenshotHelper.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ScreenshotHelper.cs",
+              "RelativeDocumentMoniker": "Utils\\ScreenshotHelper.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ScreenshotHelper.cs",
+              "RelativeToolTip": "Utils\\ScreenshotHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T18:08:49.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TheBluesAutomation.csproj",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\TheBluesAutomation.csproj",
+              "RelativeDocumentMoniker": "TheBluesAutomation.csproj",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\TheBluesAutomation.csproj",
+              "RelativeToolTip": "TheBluesAutomation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-18T03:30:10.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginTests.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\LoginTests.cs",
+              "RelativeDocumentMoniker": "Tests\\LoginTests.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\LoginTests.cs",
+              "RelativeToolTip": "Tests\\LoginTests.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwEUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T02:46:18.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginPage.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\LoginPage.cs",
+              "RelativeDocumentMoniker": "Pages\\LoginPage.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\LoginPage.cs",
+              "RelativeToolTip": "Pages\\LoginPage.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T02:45:57.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WebDriverFactory.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Drivers\\WebDriverFactory.cs",
+              "RelativeDocumentMoniker": "Drivers\\WebDriverFactory.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Drivers\\WebDriverFactory.cs",
+              "RelativeToolTip": "Drivers\\WebDriverFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T09:17:58.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddToCartTest.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\AddToCartTest.cs",
+              "RelativeDocumentMoniker": "Tests\\AddToCartTest.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Tests\\AddToCartTest.cs",
+              "RelativeToolTip": "Tests\\AddToCartTest.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAcwEYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T07:48:33.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Product.cs",
+              "RelativeDocumentMoniker": "Pages\\Product.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Product.cs",
+              "RelativeToolTip": "Pages\\Product.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAwwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T08:52:00.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Cart.cs",
+              "RelativeDocumentMoniker": "Pages\\Cart.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Pages\\Cart.cs",
+              "RelativeToolTip": "Pages\\Cart.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAkwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T08:52:32.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExtentManager.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ExtentManager.cs",
+              "RelativeDocumentMoniker": "Utils\\ExtentManager.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Utils\\ExtentManager.cs",
+              "RelativeToolTip": "Utils\\ExtentManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAEBlwAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T02:46:44.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Test1.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Test1.cs",
+              "RelativeDocumentMoniker": "Test1.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\Test1.cs",
+              "RelativeToolTip": "Test1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:32:55.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MSTestSettings.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\MSTestSettings.cs",
+              "RelativeDocumentMoniker": "MSTestSettings.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\TheBluesAutomation\\MSTestSettings.cs",
+              "RelativeToolTip": "MSTestSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:50:03.005Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 330,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 151,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
