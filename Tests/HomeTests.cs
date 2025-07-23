@@ -22,19 +22,30 @@ namespace TheBluesAutomation.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            extent = ExtentManager.GetInstance();
-            test = extent.CreateTest("HomeTests");
+            try
+            {
+                extent = ExtentManager.GetInstance();
+                test = extent.CreateTest("HomeTests");
 
-            var options = new ChromeOptions();
-            options.AddArgument("--headless");  // Headless mode bắt buộc cho CI
-            options.AddArgument("--no-sandbox");  // Tránh lỗi sandbox trên CI
-            options.AddArgument("--disable-dev-shm-usage");  // Tăng bộ nhớ
-            options.AddArgument("--disable-gpu");  // Tắt GPU
-            options.AddArgument("--remote-debugging-port=9222");
+                var options = new ChromeOptions();
+                options.AddArgument("--headless");  // Headless mode cho CI
+                options.AddArgument("--no-sandbox");  // Tránh lỗi sandbox
+                options.AddArgument("--disable-dev-shm-usage");  // Tăng hiệu suất
+                options.AddArgument("--disable-gpu");  // Tắt GPU
+                options.AddArgument("--remote-debugging-port=9222");  // Debug nếu cần
+                options.AddArgument("--disable-extensions");  // Tắt extensions gây crash
+                options.AddArgument("--window-size=1920,1080");  // Đặt kích thước window
 
-            // Khởi tạo ChromeDriver (đảm bảo path đúng với máy local)
-            driver = new ChromeDriver(options);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+                // Sử dụng WebDriverManager để tự động tải ChromeDriver
+                new DriverManager().SetUpDriver(new ChromeConfig());
+                driver = new ChromeDriver(options);  // Không cần path, dùng PATH từ WebDriverManager
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+            }
+            catch (Exception ex)
+            {
+                test!.Log(Status.Fail, $"Failed to initialize driver: {ex.Message}");
+                throw;
+            }
         }
 
         [TestMethod]
@@ -42,11 +53,9 @@ namespace TheBluesAutomation.Tests
         {
             try
             {
-                // Điều hướng đến trang đích
                 driver!.Navigate().GoToUrl("https://theblues.com.vn/");
                 test!.Log(Status.Info, "Navigated to https://theblues.com.vn/ successfully");
 
-                // Dừng tại đây, không thực hiện thêm hành động
                 test!.Log(Status.Pass, "Test stopped at https://theblues.com.vn/");
             }
             catch (Exception ex)
@@ -70,23 +79,18 @@ namespace TheBluesAutomation.Tests
         {
             try
             {
-                // Điều hướng đến trang chủ
                 driver!.Navigate().GoToUrl("https://theblues.com.vn/");
                 test!.Log(Status.Info, "Navigated to https://theblues.com.vn/ successfully");
 
-                // Chờ các category load
                 var wait = new WebDriverWait(driver!, TimeSpan.FromSeconds(30));
                 var firstCategoryLink = wait.Until(d => d.FindElement(By.CssSelector(".elementor-column:nth-child(1) .elementor-widget-container a[href='/product-category/thoi-trang-nam/']")));
 
-                // Nhấp vào category đầu tiên (THỜI TRANG NAM)
                 firstCategoryLink.Click();
                 test!.Log(Status.Info, "Clicked on first category: THỜI TRANG NAM");
 
-                // Chờ trang đích load
                 wait.Until(d => d.Url.Contains("/product-category/thoi-trang-nam/"));
                 test!.Log(Status.Info, "Navigated to https://theblues.com.vn/product-category/thoi-trang-nam/");
 
-                // Dừng tại đây, không thực hiện thêm hành động
                 test!.Log(Status.Pass, "Test stopped at https://theblues.com.vn/product-category/thoi-trang-nam/");
             }
             catch (Exception ex)
@@ -110,23 +114,18 @@ namespace TheBluesAutomation.Tests
         {
             try
             {
-                // Điều hướng đến trang chủ
                 driver!.Navigate().GoToUrl("https://theblues.com.vn/");
                 test!.Log(Status.Info, "Navigated to https://theblues.com.vn/ successfully");
 
-                // Chờ các category load
                 var wait = new WebDriverWait(driver!, TimeSpan.FromSeconds(30));
                 var firstCategoryLink = wait.Until(d => d.FindElement(By.CssSelector(".elementor-column:nth-child(2) .elementor-widget-container a[href='/product-category/thoi-trang-nu/']")));
 
-                // Nhấp vào category đầu tiên (THỜI TRANG NAM)
                 firstCategoryLink.Click();
-                test!.Log(Status.Info, "Clicked on first category: THỜI TRANG NU");
+                test!.Log(Status.Info, "Clicked on first category: THỜI TRANG NỮ");
 
-                // Chờ trang đích load
                 wait.Until(d => d.Url.Contains("/product-category/thoi-trang-nu/"));
                 test!.Log(Status.Info, "Navigated to https://theblues.com.vn/product-category/thoi-trang-nu/");
 
-                // Dừng tại đây, không thực hiện thêm hành động
                 test!.Log(Status.Pass, "Test stopped at https://theblues.com.vn/product-category/thoi-trang-nu/");
             }
             catch (Exception ex)
@@ -148,7 +147,8 @@ namespace TheBluesAutomation.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            driver?.Quit();
+            // Comment để giữ browser mở trên CI (nếu cần debug)
+             driver?.Quit();
             extent?.Flush();
         }
     }
