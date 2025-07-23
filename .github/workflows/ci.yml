@@ -19,13 +19,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore TheBluesAutomation.sln
+        run: dotnet restore TheBluesAutomation.csproj
 
       - name: Build
-        run: dotnet build TheBluesAutomation.sln --no-restore
+        run: dotnet build TheBluesAutomation.csproj --no-restore
 
       - name: Test
-        run: dotnet test TheBluesAutomation.sln --no-build --verbosity normal
+        run: dotnet test TheBluesAutomation.csproj --no-build --verbosity normal
 
   deploy:
     needs: build  
@@ -41,7 +41,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Publish
-        run: dotnet publish TheBluesAutomation.sln -c Release -o out
+        run: dotnet publish TheBluesAutomation.csproj -c Release -o out
 
       # - name: Deploy to Azure Web App  Ví dụ deploy to Azure (thay bằng Docker nếu cần)
       #   uses: azure/webapps-deploy@v3
