@@ -19,35 +19,36 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore TheBluesAutomation.csproj
+        run: dotnet restore TheBluesAutomation/TheBluesAutomation.csproj
 
       - name: Build
-        run: dotnet build TheBluesAutomation.csproj --no-restore
+        run: dotnet build TheBluesAutomation/TheBluesAutomation.csproj --no-restore
 
       - name: Install Chocolatey
         run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force
-          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+          powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 
       - name: Install Google Chrome
-        run: choco install googlechrome -y --version=138.0.7204.158
+        run: choco install googlechrome -y --ignore-checksums 
+
+      - name: Install ChromeDriver
+        run: choco install chromedriver -y --version=138.0.7204.157  # Đảm bảo phiên bản khớp Chrome
 
       - name: Test
-        run: dotnet test TheBluesAutomation.csproj --no-build --verbosity normal
+        run: dotnet test TheBluesAutomation/TheBluesAutomation.csproj --no-build --verbosity normal
 
-  deploy:
-    needs: build  
-    runs-on: windows-latest
-    if: github.ref == 'refs/heads/develop'  
+  # deploy:
+  #   needs: build  
+  #   runs-on: windows-latest
+  #   if: github.ref == 'refs/heads/develop'  
 
-    steps:
-      - uses: actions/checkout@v4
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
+  #     - name: Setup .NET
+  #       uses: actions/setup-dotnet@v4
+  #       with:
+  #         dotnet-version: '8.0.x'
 
-      - name: Publish
-        run: dotnet publish TheBluesAutomation.csproj -c Release -o out
+  #     - name: Publish
+  #       run: dotnet publish TheBluesAutomation/TheBluesAutomation.csproj -c Release -o out
