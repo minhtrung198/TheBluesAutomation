@@ -6,6 +6,9 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium.Chrome;
 using TheBluesAutomation.Utils;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
+
 
 namespace TheBluesAutomation.Tests
 {
@@ -29,8 +32,12 @@ namespace TheBluesAutomation.Tests
             // Disable mobile để test desktop (comment in nếu cần mobile sau khi pass)
             // options.AddArgument("--user-agent=Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
             // options.AddArgument("--window-size=360,780");
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-gpu");
             options.AddArgument("--start-maximized");
-            driver = new ChromeDriver("C:\\chromedriver\\chromedriver.exe", options);
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             loginPage = new LoginPage(driver);
             productPage = new ProductPage(driver);

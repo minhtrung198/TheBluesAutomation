@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheBluesAutomation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9f38005871bfe3306f218365af3f8d8e80014ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f688227ba27677be8dfd1c90a16b4304025424cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheBluesAutomation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheBluesAutomation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

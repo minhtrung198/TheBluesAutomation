@@ -7,6 +7,9 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using TheBluesAutomation.Utils;
 using TheBluesAutomation.Pages;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
+
 
 namespace TheBluesAutomation.Tests
 {
@@ -25,9 +28,13 @@ namespace TheBluesAutomation.Tests
             test = extent.CreateTest("LoginTests");
 
             var options = new ChromeOptions();
+            options.AddArgument("--headless"); 
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-gpu");
             options.AddArgument("--user-agent=Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
             options.AddArgument("--window-size=360,780");
-            driver = new ChromeDriver("C:\\chromedriver\\chromedriver.exe", options);
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             loginPage = new LoginPage(driver);
         }

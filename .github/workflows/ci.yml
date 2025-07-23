@@ -24,6 +24,15 @@ jobs:
       - name: Build
         run: dotnet build TheBluesAutomation.csproj --no-restore
 
+      - name: Install Chocolatey
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+      - name: Install Google Chrome
+        run: choco install googlechrome -y --version=138.0.7204.158
+
       - name: Test
         run: dotnet test TheBluesAutomation.csproj --no-build --verbosity normal
 
@@ -42,10 +51,3 @@ jobs:
 
       - name: Publish
         run: dotnet publish TheBluesAutomation.csproj -c Release -o out
-
-      # - name: Deploy to Azure Web App  Ví dụ deploy to Azure (thay bằng Docker nếu cần)
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: 'your-azure-app-name'  Tên app Azure
-      #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  Secret từ GitHub
-      #     package: out
