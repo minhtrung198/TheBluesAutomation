@@ -1,0 +1,51 @@
+﻿name: .NET CI/CD Pipeline
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+  deploy:
+    needs: build  
+    runs-on: windows-latest
+    if: github.ref == 'refs/heads/develop'  
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish
+        run: dotnet publish -c Release -o out
+
+      # - name: Deploy to Azure Web App  Ví dụ deploy to Azure (thay bằng Docker nếu cần)
+      #   uses: azure/webapps-deploy@v3
+      #   with:
+      #     app-name: 'your-azure-app-name'  Tên app Azure
+      #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  Secret từ GitHub
+      #     package: out
