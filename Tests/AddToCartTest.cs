@@ -18,16 +18,6 @@ namespace TheBluesAutomation.Tests
         private LoginPage? loginPage;
         private static ExtentReports? extent;
         private ExtentTest? test;
-        //private ExtentReports? extent;
-
-        [ClassInitialize]
-        public static void ClassInitialize(TestContext testContext)
-        {
-            extent = new ExtentReports();
-            Directory.CreateDirectory("Reports");
-            var reporter = new ExtentHtmlReporter("Reports/AddToCartReport.html");
-            extent.AttachReporter(reporter);
-        }
 
         [TestInitialize]
         public void TestInitialize()
@@ -36,8 +26,10 @@ namespace TheBluesAutomation.Tests
             test = extent.CreateTest("AddToCartTests");
 
             var options = new ChromeOptions();
-            options.AddArgument("--user-agent=Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
-            options.AddArgument("--window-size=360,780");
+            // Disable mobile để test desktop (comment in nếu cần mobile sau khi pass)
+            // options.AddArgument("--user-agent=Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36");
+            // options.AddArgument("--window-size=360,780");
+            options.AddArgument("--start-maximized");
             driver = new ChromeDriver("C:\\chromedriver\\chromedriver.exe", options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             loginPage = new LoginPage(driver);
@@ -56,54 +48,46 @@ namespace TheBluesAutomation.Tests
                 test.Log(Status.Info, "Navigated to product page");
 
                 productPage!.SelectAllAvailableVariations();
+                System.Threading.Thread.Sleep(1000);
                 productPage.SetQuantity(1);
 
                 string productTitle = productPage.GetProductTitle();
                 string productPrice = productPage.GetPrice();
 
                 productPage.ClickAddToCart();
-                productPage.HandleUnexpectedAlertIfAny();
+                System.Threading.Thread.Sleep(2000);
+                productPage.HandleUnexpectedAlertIfAny(); // Handle alert ngay sau add
+                productPage.ClickViewCartInPopup();
+                System.Threading.Thread.Sleep(2000); // Wait cart load
+
+                // Switch to main window nếu cần
+                driver.SwitchTo().Window(driver.WindowHandles.Last());
 
                 Assert.IsTrue(productPage.IsSuccessPopupDisplayed(), "Popup thông báo thành công phải hiển thị");
                 productPage.GoToCartAfterAdd();
-                productPage.ClickViewCartInPopup();
 
                 Assert.AreEqual(1, cartPage!.GetCartItemCount(), "Cart should contain 1 item");
                 Assert.AreEqual(productTitle, cartPage.GetFirstItemTitle(), "Product title should match");
                 Assert.AreEqual(productPrice, cartPage.GetFirstItemPrice(), "Product price should match");
 
+                test.Log(Status.Pass, "Test stopped after viewing the cart successfully");
                 test.Log(Status.Pass, "Test passed successfully");
             }
             catch (Exception ex)
             {
-                test.Log(Status.Fail, $"Test failed: {ex.Message}");
+                string screenshotPath = string.Empty;
+                try
+                {
+                    if (driver != null)
+                    {
+                        screenshotPath = ScreenshotHelper.CaptureScreenshot(driver, "AddToCartFail");
+                    }
+                }
+                catch { /* Ignore if screenshot fail */ }
+                test.Log(Status.Fail, $"Test failed: {ex.Message} - Screenshot: {screenshotPath}");
                 throw;
             }
         }
-
-        //[TestMethod]
-        //public void AddToCart_EmptyQuantity_ShouldShowError()
-        //{
-        //    test = extent.CreateTest("Add to Cart with Empty Quantity");
-
-        //    try
-        //    {
-        //        // Arrange
-        //        driver.Navigate().GoToUrl("https://theblues.com.vn/san-pham/ao-khoac-du-nam-2-lop-qn2-kj1l-23-031r/");
-
-        //        // Act
-        //        productPage.SetQuantity(0);
-        //        productPage.ClickAddToCart();
-
-
-        //        test.Log(Status.Pass, "Empty quantity validation test passed");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        test.Log(Status.Fail, $"Test failed: {ex.Message}");
-        //        throw;
-        //    }
-        //}
 
         [TestCleanup]
         public void Cleanup()
