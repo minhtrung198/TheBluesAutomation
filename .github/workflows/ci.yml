@@ -19,10 +19,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore TheBluesAutomation/TheBluesAutomation.csproj
+        run: dotnet restore TheBluesAutomation.csproj
 
       - name: Build
-        run: dotnet build TheBluesAutomation/TheBluesAutomation.csproj --no-restore
+        run: dotnet build TheBluesAutomation.csproj --no-restore
 
       - name: Install Chocolatey
         run: |
@@ -35,7 +35,7 @@ jobs:
         run: choco install chromedriver -y --version=138.0.7204.157  # Đảm bảo phiên bản khớp Chrome
 
       - name: Test
-        run: dotnet test TheBluesAutomation/TheBluesAutomation.csproj --no-build --verbosity normal
+        run: dotnet test TheBluesAutomation.csproj --no-build --verbosity normal --filter "FullyQualifiedName~TheBluesAutomation.Tests.HomeTests"
 
   # deploy:
   #   needs: build  

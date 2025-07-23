@@ -26,10 +26,14 @@ namespace TheBluesAutomation.Tests
             test = extent.CreateTest("HomeTests");
 
             var options = new ChromeOptions();
-            options.AddArgument("--start-maximized"); // Mở full screen (có thể comment nếu muốn xem kích thước mặc định)
+            options.AddArgument("--headless");  // Headless mode bắt buộc cho CI
+            options.AddArgument("--no-sandbox");  // Tránh lỗi sandbox trên CI
+            options.AddArgument("--disable-dev-shm-usage");  // Tăng bộ nhớ
+            options.AddArgument("--disable-gpu");  // Tắt GPU
+            options.AddArgument("--remote-debugging-port=9222");
 
             // Khởi tạo ChromeDriver (đảm bảo path đúng với máy local)
-            driver = new ChromeDriver("C:\\chromedriver\\chromedriver.exe", options);
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
