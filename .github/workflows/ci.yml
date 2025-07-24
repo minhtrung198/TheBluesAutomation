@@ -29,29 +29,28 @@ jobs:
           powershell -Command "Set-ExecutionPolicy Bypass -Scope CurrentUser -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 
       - name: Install Google Chrome
-        run: choco install googlechrome -y --ignore-checksums 
+        run: choco install googlechrome -y --ignore-checksums
 
       - name: Install ChromeDriver
-        run: choco install chromedriver -y --version=138.0.7204.157  # Đảm bảo phiên bản khớp Chrome
+        run: choco install chromedriver -y --ignore-checksums
 
       - name: Check ChromeDriver Path
         run: echo %PATH%
 
       - name: Test
         run: dotnet test TheBluesAutomation.csproj --no-build --verbosity normal --filter "FullyQualifiedName~TheBluesAutomation.Tests.HomeTests"
+  deploy:
+    needs: build  
+    runs-on: windows-latest
+    if: github.ref == 'refs/heads/develop'  
 
-  # deploy:
-  #   needs: build  
-  #   runs-on: windows-latest
-  #   if: github.ref == 'refs/heads/develop'  
+    steps:
+      - uses: actions/checkout@v4
 
-  #   steps:
-  #     - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
 
-  #     - name: Setup .NET
-  #       uses: actions/setup-dotnet@v4
-  #       with:
-  #         dotnet-version: '8.0.x'
-
-  #     - name: Publish
-  #       run: dotnet publish TheBluesAutomation/TheBluesAutomation.csproj -c Release -o out
+      - name: Publish
+        run: dotnet publish TheBluesAutomation.csproj -c Release -o out

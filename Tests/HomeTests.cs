@@ -36,8 +36,14 @@ namespace TheBluesAutomation.Tests
                 options.AddArgument("--disable-extensions");  // Tắt extensions gây crash
                 options.AddArgument("--window-size=1920,1080");  // Đặt kích thước window
 
-                // Sử dụng WebDriverManager để tự động tải ChromeDriver
-                new DriverManager().SetUpDriver(new ChromeConfig());
+                // Kiểm tra môi trường CI
+                bool isCI = Environment.GetEnvironmentVariable("CI") == "true";
+                if (!isCI)
+                {
+                    // Local: dùng WebDriverManager để tự tải driver
+                    new DriverManager().SetUpDriver(new ChromeConfig());
+                }
+
                 driver = new ChromeDriver(options);  // Không cần path, dùng PATH từ WebDriverManager
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             }
@@ -147,7 +153,6 @@ namespace TheBluesAutomation.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            // Comment để giữ browser mở trên CI (nếu cần debug)
              driver?.Quit();
             extent?.Flush();
         }
