@@ -15,43 +15,32 @@ namespace TheBluesAutomation.Tests
     [TestClass]
     public class HomeTests
     {
+        public TestContext? TestContext { get; set; }
         private IWebDriver? driver;
         private static ExtentReports? extent;
         private ExtentTest? test;
 
+        [AssemblyInitialize]  // Sử dụng TestContext làm tham số
+        public static void AssemblyInit(TestContext context) { }
+
         [TestInitialize]
         public void TestInitialize()
         {
-            try
-            {
-                extent = ExtentManager.GetInstance();
-                test = extent.CreateTest("HomeTests");
+            extent = ExtentManager.GetInstance();
+            test = extent!.CreateTest(TestContext!.TestName); // Dùng TestContext.TestName trong MSTest
 
-                var options = new ChromeOptions();
-                options.AddArgument("--headless");  // Headless mode cho CI
-                options.AddArgument("--no-sandbox");  // Tránh lỗi sandbox
-                options.AddArgument("--disable-dev-shm-usage");  // Tăng hiệu suất
-                options.AddArgument("--disable-gpu");  // Tắt GPU
-                options.AddArgument("--remote-debugging-port=9222");  // Debug nếu cần
-                options.AddArgument("--disable-extensions");  // Tắt extensions gây crash
-                options.AddArgument("--window-size=1920,1080");  // Đặt kích thước window
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--disable-gpu");
+            options.AddArgument("--remote-debugging-port=9222");
+            options.AddArgument("--disable-extensions");
+            options.AddArgument("--window-size=1920,1080");
 
-                // Kiểm tra môi trường CI
-                bool isCI = Environment.GetEnvironmentVariable("CI") == "true";
-                if (!isCI)
-                {
-                    // Local: dùng WebDriverManager để tự tải driver
-                    new DriverManager().SetUpDriver(new ChromeConfig());
-                }
-
-                driver = new ChromeDriver(options);  // Không cần path, dùng PATH từ WebDriverManager
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            }
-            catch (Exception ex)
-            {
-                test!.Log(Status.Fail, $"Failed to initialize driver: {ex.Message}");
-                throw;
-            }
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver(options);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
 
         [TestMethod]
@@ -153,7 +142,7 @@ namespace TheBluesAutomation.Tests
         [TestCleanup]
         public void Cleanup()
         {
-             driver?.Quit();
+            driver?.Quit();
             extent?.Flush();
         }
     }
